@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header th:replace="~{layout::header}">
+
+</header>
+<!--<header th:insert="">-->
+<!--    -->
+<!--</header>-->
+<!--cú phap noi chuoi-->
+<!--<p th:text="|Toi ten la ${name}. XIn chao cac ban !|">tên tôi là</p>-->
+<p th:text="${'Tôi tên là :'+name}">tên tôi là</p>
+<!--<p th:text="${#temporals.format(now,'yyyy-MM-dd')}"></p>-->
+
+<nav th:replace="~{layout::nav}">
+
+</nav>
+<!--Vòng lặp-->
+<div th:each="item,loop : ${list}" th:text="${item}" th:id="${loop.index}">
+</div>
+<p th:text="${age}"></p>
+<!-- Câu lệnh điều kiện if -->
+<p th:if="${age >= 18}">
+    Bạn đã đủ 18 tuổi
+</p>
+<p th:unless="${age >= 18}">
+    Bạn chưa đủ 18 tuổi
+</p>
+
+<ul th:switch="${day}">
+    <li th:case="MONDAY"> Đây là thứ 2</li>
+    <li th:case="TUESDAY"> Đây là thứ 3</li>
+    <li th:case="WEDNESDAY"> Đây là thứ 4</li>
+    <li th:case="*"> Đây là ngày ko xác định</li>
+</ul>
+
+<footer th:replace="~{layout::footer}">
+<!-- các đối tượng ẩn trong thymeleaf-->
+
+</footer>
+</body>
+</html>
